@@ -11,8 +11,7 @@ namespace erpLogin.Model
         public string LeadMobileNo { get; set; }
         [Required]
         public string Location { get; set; }
-        [Required]
-        public string LeadAddress {get; set;}
+        public string? LeadAddress {get; set;}
         public string? LeadEmail { get; set;}
         [Required]
         public string HighLevelRequirement { get; set;}
@@ -20,7 +19,7 @@ namespace erpLogin.Model
         public string LeadStatus { get; set;}
         [Required]
         public string LeadFeasibility {  get; set;}  
-        [Required]
-        public string Remarks { get; set;}
+        
+        public string? Remarks { get; set;}
     }
 }

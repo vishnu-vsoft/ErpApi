@@ -15,16 +15,28 @@ builder.Services.AddControllers()
                 options.JsonSerializerOptions.DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull;
             });
 builder.Services.AddScoped<ILeadReg, LeadReg>();
+builder.Services.AddScoped<IFetchLead, FetchLead>();
+
+// CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowSpecificOrigin",
+        builder => builder.WithOrigins("http://localhost:4200")
+                          .AllowAnyHeader()
+                          .AllowAnyMethod());
+});
 var app = builder.Build();
 
+// Enable CORS
+app.UseCors("AllowSpecificOrigin");
+
+app.UseHttpsRedirection();
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
-app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
