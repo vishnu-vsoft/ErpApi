@@ -15,7 +15,7 @@ namespace erpLogin.Controllers
         }
         [HttpGet("GetLeadList")]
         public async Task<ActionResult<IEnumerable<LeadRegister>>> GetLeadList()
-       {
+        {
             var response = await  _fetchLead.getLeadDetails();
             return(Ok(response));
         }
