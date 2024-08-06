@@ -16,7 +16,11 @@ builder.Services.AddControllers()
             });
 builder.Services.AddScoped<ILeadReg, LeadReg>();
 builder.Services.AddScoped<IFetchLead, FetchLead>();
-
+builder.Services.AddControllers()
+        .AddJsonOptions(options =>
+        {
+            options.JsonSerializerOptions.PropertyNamingPolicy = null; 
+        });
 // CORS
 builder.Services.AddCors(options =>
 {

@@ -25,7 +25,7 @@ namespace erpLogin.Repository
                 await connection.OpenAsync();
                 SqlCommand cmd = new SqlCommand("Upsertlead",connection);
                 cmd.CommandType = System.Data.CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@Id", registration.Id ?? (object)DBNull.Value );
+                cmd.Parameters.AddWithValue("@Id", registration.Id ?? (object)DBNull.Value);
                 cmd.Parameters.AddWithValue("@LeadName", registration.LeadName);
                 cmd.Parameters.AddWithValue("@LeadMobileNo", registration.LeadMobileNo);
                 cmd.Parameters.AddWithValue("@LeadAddress", registration.LeadAddress);
@@ -41,6 +41,8 @@ namespace erpLogin.Repository
             }
             
         }
+
+        
     }
 
 }

@@ -19,5 +19,11 @@ namespace erpLogin.Controllers
             var response = await  _fetchLead.getLeadDetails();
             return(Ok(response));
         }
+        [HttpGet("{id}")]
+        public async Task<ActionResult<IEnumerable<LeadRegister>>> GetLead(string id)
+        {
+            var resp = await _fetchLead.GetLead(id);
+            return(Ok(resp));
+        }
     }
 }
