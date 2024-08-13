@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace erpLogin.Model
 {
@@ -15,11 +16,16 @@ namespace erpLogin.Model
         public string? LeadEmail { get; set;}
         [Required]
         public string HighLevelRequirement { get; set;}
-        [Required]
-        public string LeadStatus { get; set;}
-        [Required]
-        public string LeadFeasibility {  get; set;}  
+        
+        public string? LeadStatus { get; set;}
+        
+        public string? LeadFeasibility {  get; set;}  
         
         public string? Remarks { get; set;}
+
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime CreatedDate { get; set; }
+        [Required, DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+        public DateTime UpdatedDate { get; set; }
     }
 }

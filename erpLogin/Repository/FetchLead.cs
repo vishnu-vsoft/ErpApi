@@ -21,7 +21,7 @@ namespace erpLogin.Repository
             SqlConnection connection = new SqlConnection(connectionString);
             await connection.OpenAsync();
             var leads = new List<LeadRegister>();
-            var sqlCommand = new SqlCommand("SELECT * FROM LeadRegister", connection);
+            var sqlCommand = new SqlCommand("SELECT * FROM Lead", connection);
             using(SqlDataReader reader = await sqlCommand.ExecuteReaderAsync())
             {
                 {
@@ -57,7 +57,7 @@ namespace erpLogin.Repository
             {
                 await conn.OpenAsync();
 
-                using (var sqlCommand = new SqlCommand("SELECT * FROM LeadRegister WHERE Id = @id", conn))
+                using (var sqlCommand = new SqlCommand("SELECT * FROM Lead WHERE Id = @id", conn))
                 {
                     sqlCommand.Parameters.AddWithValue("@id", id);
 

@@ -32,9 +32,10 @@ namespace erpLogin.Repository
                 cmd.Parameters.AddWithValue("@LeadEmail", registration.LeadEmail);
                 cmd.Parameters.AddWithValue("@HighLevelRequirement", registration.HighLevelRequirement);
                 cmd.Parameters.AddWithValue("@Locations", registration.Location);
-                cmd.Parameters.AddWithValue("@LeadStatus", registration.LeadStatus);
-                cmd.Parameters.AddWithValue("@Remarks", registration.Remarks);
-                cmd.Parameters.AddWithValue("@Feasibility", registration.LeadFeasibility);
+                cmd.Parameters.AddWithValue("@LeadStatus", registration.LeadStatus ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Remarks", registration.Remarks ?? (object)DBNull.Value);
+                cmd.Parameters.AddWithValue("@Feasibility", registration.LeadFeasibility ?? (object)DBNull.Value);
+
                   
                  await cmd.ExecuteNonQueryAsync();
                 return "Successfully inserted";
